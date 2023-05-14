@@ -12,10 +12,6 @@ public record Players(AllPlayers[] allPlayers) {
         this.allPlayers = allPlayers;
     }
 
-    public AllPlayers[] getAllPlayers() {
-        return allPlayers;
-    }
-
     public String getRequesterTeam(String requester){
         for (AllPlayers player: allPlayers) {
             if(Objects.equals(player.name(), requester)){

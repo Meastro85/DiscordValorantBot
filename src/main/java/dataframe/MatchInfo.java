@@ -26,14 +26,6 @@ public record MatchInfo(Data[] data, int status, String name, String character, 
         this.assists = assists;
     }
 
-    public int getStatus(){
-        return status;
-    }
-
-    public Data[] getData(){
-        return data;
-    }
-
     public List<Data> getLastNumberOfData(int matches){
         return new LinkedList<>(Arrays.asList(data).subList(0, matches));
     }

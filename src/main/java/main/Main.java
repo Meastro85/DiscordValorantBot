@@ -1,17 +1,30 @@
-package org.example;
+package main;
 
 import httpclasses.Requests;
 import dataframe.AllPlayers;
 import dataframe.Data;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.exceptions.InvalidTokenException;
+import net.dv8tion.jda.api.sharding.DefaultShardManagerBuilder;
+import net.dv8tion.jda.api.sharding.ShardManager;
 import playerclasses.playerStats;
-import utilclasses.MapUtil;
 
+import javax.security.auth.login.LoginException;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Main {
+
     public static void main(String[] args) throws IOException, InterruptedException {
+
+        try{
+            ValorantBot bot = new ValorantBot();
+        } catch(InvalidTokenException e){
+            System.out.println("ERROR: Provided bot token is invalid!");
+        }
+
+
         Map<String, String> parameters = new HashMap<>();
         parameters.put("username", "Meastro");
         parameters.put("tag", "3696");
