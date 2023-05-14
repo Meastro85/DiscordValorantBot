@@ -1,7 +1,8 @@
-package jsonclasses;
+package dataframe;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import dataframe.Players;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Data(Players players){

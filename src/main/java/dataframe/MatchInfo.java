@@ -1,8 +1,11 @@
-package jsonclasses;
+package dataframe;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonToken;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record MatchInfo(Data[] data, int status, String name, String character, int kills, int deaths, int assists) {
@@ -29,6 +32,10 @@ public record MatchInfo(Data[] data, int status, String name, String character, 
 
     public Data[] getData(){
         return data;
+    }
+
+    public List<Data> getLastNumberOfData(int matches){
+        return new LinkedList<>(Arrays.asList(data).subList(0, matches));
     }
 
 }
