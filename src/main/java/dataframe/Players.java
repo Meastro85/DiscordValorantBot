@@ -14,7 +14,8 @@ public record Players(AllPlayers[] allPlayers) {
 
     public String getRequesterTeam(String requester){
         for (AllPlayers player: allPlayers) {
-            if(Objects.equals(player.name(), requester)){
+            String name = player.name();
+            if(name.equalsIgnoreCase(requester)){
                 return player.team();
             }
         }

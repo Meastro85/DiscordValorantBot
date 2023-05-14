@@ -15,9 +15,9 @@ public class Requests {
 
     private static final String HISTORYURL = "https://api.henrikdev.xyz/valorant/v3/matches/eu/";
 
-    public static HttpResponse<Supplier<MatchInfo>> premierHistory(Map<String, String> parameters) throws IOException, InterruptedException {
+    public static HttpResponse<Supplier<MatchInfo>> matchHistory(Map<String, String> parameters) throws IOException, InterruptedException {
 
-        String params = String.format("%s/%s?filter=%s", parameters.get("username"), parameters.get("tag"), parameters.get("filter"));
+        String params = String.format("%s/%s?filter=%s", parameters.get("requester"), parameters.get("tag"), parameters.get("filter"));
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder(URI.create(HISTORYURL + params)).build();

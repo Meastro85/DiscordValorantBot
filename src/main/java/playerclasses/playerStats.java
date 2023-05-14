@@ -5,11 +5,13 @@ public class playerStats {
     private int kills;
     private int deaths;
     private int assists;
+    private String agents;
 
-    public playerStats(int kills, int deaths, int assists){
+    public playerStats(int kills, int deaths, int assists, String agents) {
         this.kills = kills;
         this.deaths = deaths;
         this.assists = assists;
+        this.agents = agents;
     }
 
     public int getKills() {
@@ -24,16 +26,24 @@ public class playerStats {
         return assists;
     }
 
-    public void addKills(int kills){
+    public String getAgents() {
+        return agents;
+    }
+
+    public void addKills(int kills) {
         this.kills += kills;
     }
 
-    public void addDeaths(int deaths){
+    public void addDeaths(int deaths) {
         this.deaths += deaths;
     }
 
-    public void addAssists(int assists){
+    public void addAssists(int assists) {
         this.assists += assists;
+    }
+
+    public void addAgent(String agent){
+        this.agents += " " + agent;
     }
 
 }
