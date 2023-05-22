@@ -1,6 +1,5 @@
 package commands;
 
-import com.fasterxml.jackson.databind.deser.DataFormatReaders;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
@@ -12,14 +11,14 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
-public class MatchHistoryCommand implements Slash {
+public class PremierHistoryCommand implements Slash {
 
 
     @Override
     public void onSlashCommandEvent(SlashCommandInteractionEvent event) throws IOException, InterruptedException {
         String requester = event.getOption("requester", OptionMapping::getAsString);
         String tag = event.getOption("tag", OptionMapping::getAsString);
-        String filter = event.getOption("filter", OptionMapping::getAsString);
+        String filter = "premier";
         String matches = event.getOption("matches", OptionMapping::getAsString);
         int matchInt;
         if(matches != null && Integer.parseInt(matches) <= 5 && Integer.parseInt(matches) > 0){
@@ -58,7 +57,7 @@ public class MatchHistoryCommand implements Slash {
 
     @Override
     public String getName() {
-        return "gethistory";
+        return "getpremierhistory";
     }
 
     @Override
@@ -80,7 +79,6 @@ public class MatchHistoryCommand implements Slash {
     public List<OptionData> getOptions() {
         return List.of(new OptionData(OptionType.STRING, "requester", "Name of the person requesting GET.", true),
                 new OptionData(OptionType.STRING, "tag", "Tag of the person requesting GET", true),
-                new OptionData(OptionType.STRING, "filter", "Filter by gamemode", false),
-                new OptionData(OptionType.STRING, "matches", "Amount of matches to get (max 5)", false));
+                new OptionData(OptionType.STRING, "matches", "Amount of matches to get (max 5)", true));
     }
 }
